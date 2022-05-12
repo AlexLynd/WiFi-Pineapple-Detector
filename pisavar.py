@@ -113,7 +113,7 @@ def find_channel(clist, v):
     global channel
     for i in range(0, len(clist)):
         if clist[i].haslayer(Dot11Beacon) and clist[i].addr2 == v:
-            channel = ord(clist[i][Dot11Elt:3].info)
+            channel = ((clist[i][RadioTap].Channel)-2407)//5
     return channel
 
 
